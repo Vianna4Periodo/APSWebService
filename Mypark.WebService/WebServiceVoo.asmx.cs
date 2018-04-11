@@ -76,8 +76,9 @@ namespace Mypark.WebService
                 var passagem = new Passagem();
                 passagem.Voo = voo;
                 voo.Passagens.Add(passagem);
-                DbFactory.Instance.VooRepository.SaveOrUpdate(voo);
             }
+
+            DbFactory.Instance.VooRepository.SaveOrUpdate(voo);
 
             return true;
         }

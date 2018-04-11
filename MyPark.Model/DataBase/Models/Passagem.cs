@@ -13,7 +13,7 @@ namespace MyPark.Model.DataBase.Models
         public virtual Guid Id { get; set; }
         public virtual Voo Voo { get; set; }
 
-        public Double Valor
+        public virtual Double Valor
         {
             get
             {
@@ -21,7 +21,7 @@ namespace MyPark.Model.DataBase.Models
             }
         }
 
-        public DateTime Data
+        public virtual DateTime Data
         {
             get
             {
@@ -29,7 +29,7 @@ namespace MyPark.Model.DataBase.Models
             }
         }
 
-        public DateTime Hora
+        public virtual DateTime Hora
         {
             get
             {

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace MyPark.Model.DataBase.Models
 {
@@ -18,9 +19,11 @@ namespace MyPark.Model.DataBase.Models
         public virtual String Destino { get; set; }
         public virtual int QtdAssentos { get; set; }
         public virtual Double Preco { get; set; }
-        public List<Passagem> Passagens { get; set; }
 
-        public int AssentosDisponiveis
+        [XmlIgnore]
+        public virtual IList<Passagem> Passagens { get; set; }
+
+        public virtual int AssentosDisponiveis
         {
             get
             {
@@ -28,7 +31,7 @@ namespace MyPark.Model.DataBase.Models
             }
         }
 
-        public bool IsPossibleAddPassagem
+        public virtual bool IsPossibleAddPassagem
         {
             get
             {
@@ -58,7 +61,7 @@ namespace MyPark.Model.DataBase.Models
 
             Bag(x => x.Passagens, m =>
             {
-                m.Cascade(Cascade.Detach);
+                m.Cascade(Cascade.All);
                 m.Lazy(CollectionLazy.Lazy);
                 m.Key(k => k.Column("idVoo"));
                 m.Inverse(true);

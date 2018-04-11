@@ -1,4 +1,5 @@
-﻿using MyPark.Model.DataBase.Models;
+﻿
+using MyPark.Model.DataBase.Models;
 using MyPark.Model.DataBase.Repository;
 using MySql.Data.MySqlClient;
 using NHibernate;
@@ -7,12 +8,8 @@ using NHibernate.Cfg.MappingSchema;
 using NHibernate.Context;
 using NHibernate.Mapping.ByCode;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web;
 
 namespace MyPark.Model.DataBase
@@ -23,27 +20,15 @@ namespace MyPark.Model.DataBase
 
         private ISessionFactory _sessionFactory;
 
-        public UserRepository UserRepository { get; set; }
-        public ClienteRepository ClienteRepository { get; set; }
-        public EstadiaRepository EstadiaRepository { get; set; }
-        public OperadorRepository OperadorRepository { get; set; }
-        public PlanoRepository PlanoRepository { get; set; }
-        public TipoVeiculoRepository TipoVeiculoRepository { get; set; }
-        public VeiculoRepository VeiculoRepository { get; set; }
-        public LivroRepository LivroRepository { get; set; }
+        public VooRepository VooRepository { get; set; }
+        public PassagemRepository PassagemRepository { get; set; }
 
         private DbFactory()
         {
             Conectar();
 
-            this.ClienteRepository = new ClienteRepository(this.Session);
-            this.EstadiaRepository = new EstadiaRepository(this.Session);
-            this.OperadorRepository = new OperadorRepository(this.Session);
-            this.PlanoRepository = new PlanoRepository(this.Session);
-            this.TipoVeiculoRepository = new TipoVeiculoRepository(this.Session);
-            this.VeiculoRepository = new VeiculoRepository(this.Session);
-            this.UserRepository = new UserRepository(this.Session);
-            this.LivroRepository = new LivroRepository(this.Session);
+            this.VooRepository = new VooRepository(this.Session);
+            this.PassagemRepository = new PassagemRepository(this.Session);
         }
 
         public static DbFactory Instance => _instance ?? (_instance = new DbFactory());
@@ -59,7 +44,7 @@ namespace MyPark.Model.DataBase
             {
                 var server = "localhost";
                 var port = "3306";
-                var dbName = "mypark";
+                var dbName = "voodb";
                 var user = "root";
                 var psw = "root";
 
@@ -167,7 +152,7 @@ namespace MyPark.Model.DataBase
                 var mapper = new ModelMapper();
 
                 mapper.AddMappings(
-                    Assembly.GetAssembly(typeof(UserMap)).GetTypes()
+                    Assembly.GetAssembly(typeof(VooMap)).GetTypes()
                 );
 
                 return mapper.CompileMappingForAllExplicitlyAddedEntities();

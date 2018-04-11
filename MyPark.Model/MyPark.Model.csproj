@@ -55,23 +55,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBase\DbFactory.cs" />
-    <Compile Include="DataBase\Models\Cliente.cs" />
-    <Compile Include="DataBase\Models\Estadia.cs" />
-    <Compile Include="DataBase\Models\Livro.cs" />
-    <Compile Include="DataBase\Models\Operador.cs" />
-    <Compile Include="DataBase\Models\Plano.cs" />
-    <Compile Include="DataBase\Models\TipoVeiculo.cs" />
-    <Compile Include="DataBase\Models\User.cs" />
-    <Compile Include="DataBase\Models\Veiculo.cs" />
-    <Compile Include="DataBase\Repository\ClienteRepository.cs" />
-    <Compile Include="DataBase\Repository\EstadiaRepository.cs" />
-    <Compile Include="DataBase\Repository\LivroRepository.cs" />
-    <Compile Include="DataBase\Repository\OperadorRepository.cs" />
-    <Compile Include="DataBase\Repository\PlanoRepository.cs" />
+    <Compile Include="DataBase\Models\Passagem.cs" />
+    <Compile Include="DataBase\Models\Voo.cs" />
+    <Compile Include="DataBase\Repository\PassagemRepository.cs" />
+    <Compile Include="DataBase\Repository\VooRepository.cs" />
     <Compile Include="DataBase\Repository\RepositoryBase.cs" />
-    <Compile Include="DataBase\Repository\TipoVeiculoRepository.cs" />
-    <Compile Include="DataBase\Repository\UserRepository.cs" />
-    <Compile Include="DataBase\Repository\VeiculoRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

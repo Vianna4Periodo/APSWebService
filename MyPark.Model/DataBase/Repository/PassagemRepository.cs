@@ -6,13 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace MyPark.Model.DataBase.Repository
 {
-    public class VeiculoRepository : RepositoryBase<Veiculo>
+    public class PassagemRepository : RepositoryBase<Passagem>
     {
-        public VeiculoRepository(ISession session) : base(session)
+        public PassagemRepository(ISession session) : base(session)
         {
         }
-}
+    }
 }

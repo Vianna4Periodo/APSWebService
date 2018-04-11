@@ -10,22 +10,6 @@ namespace MyPark.Controllers
 {
     public class AdminController : Controller
     {
-        // GET: Admin
-        public ActionResult TipoVeiculo()
-        {
-            var tipoVeiculos = DbFactory.Instance.TipoVeiculoRepository.FindAll();
-            return View(tipoVeiculos);
-        }
-
-        public ActionResult AddTipoVeiculo()
-        {
-            return View(new TipoVeiculo());
-        }
-
-        public ActionResult GravarTipoVeiculo(TipoVeiculo tipoVeiculo)
-        {
-            DbFactory.Instance.TipoVeiculoRepository.SaveOrUpdate(tipoVeiculo);
-            return RedirectToAction("TipoVeiculo");
-        }
+        
     }
 }

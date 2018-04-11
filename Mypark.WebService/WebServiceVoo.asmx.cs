@@ -58,9 +58,9 @@ namespace Mypark.WebService
         // -- Passagens
 
         [WebMethod]
-        public bool ComprarBilhete(int NumeroVoo, int QtdPassagens)
+        public bool ComprarBilhete(Guid id, int QtdPassagens)
         {
-            var voo = DbFactory.Instance.VooRepository.FindByNumero(NumeroVoo);
+            var voo = DbFactory.Instance.VooRepository.FindFirstById(id);
 
             if (voo == null)
                 throw new Exception("Não foi possível comprar as passagens pois o voo não existe.");

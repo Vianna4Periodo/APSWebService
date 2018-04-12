@@ -52,7 +52,16 @@ namespace ClienteAeroporto.Controllers
 
         public ActionResult CompraPassagem(Guid idvoo, int quantidade)
         {
-            server.ComprarBilhete(idvoo, quantidade);
+            try
+            {
+                server.ComprarBilhete(idvoo, quantidade);
+            }
+            catch(Exception ex)
+            {
+                ViewBag.ex = ex;
+            }
+
+            
             return RedirectToAction("Index");
         }
 

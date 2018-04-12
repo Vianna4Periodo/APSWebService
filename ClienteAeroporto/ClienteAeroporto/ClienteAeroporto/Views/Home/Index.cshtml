@@ -1,0 +1,68 @@
+﻿@model IEnumerable<ClienteAeroporto.localhost.Voo>
+
+@{
+    ViewBag.Title = "Vôos";
+}
+
+<h2>Listagem de Vôos</h2>
+
+<p>
+    @Html.ActionLink("Adicionar Vôo", "AddVoo") | 
+    @Html.ActionLink("Listar Passagens", "ListarPassagens")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Aeronave")
+        </th>
+        <th>
+            @Html.DisplayName("Numero Vôo")
+        </th>
+        <th>
+            @Html.DisplayName("Data")
+        </th>
+        <th>
+            @Html.DisplayName("Hora")
+        </th>
+        <th>
+            @Html.DisplayName("Destino")
+        </th>
+        <th>
+            @Html.DisplayName("Assentos disponíveis")
+        </th>
+        <th>
+            @Html.DisplayName("Preço")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Aeronave)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Numero)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hora)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Destino)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtdAssentos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Preco)
+        </td>
+        <td>
+            @Html.ActionLink("Comprar Passagem", "ComprarPassagem", new { id = item.Id })
+        </td>
+    </tr>
+}
+
+</table>

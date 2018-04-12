@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ClienteAeroporto.localhost.Passagem>
+
+@{
+    ViewBag.Title = "Passagens";
+}
+
+<h2>Passagens</h2>
+
+<table class="table">
+    <tr>
+        <th></th>
+    </tr>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Voo.Aeronave)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Voo.Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Voo.Hora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Voo.Numero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Voo.Destino)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Voo.Aeronave)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Voo.Data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Voo.Hora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Voo.Numero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Voo.Destino)
+            </td>
+            <td>
+                @Html.ActionLink("Devolver", "DevolverPassagem", new { id = item.Id })
+            </td>
+        </tr>
+}
+
+    </table>
